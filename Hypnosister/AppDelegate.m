@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "BNRHypnosisVuew.h"
 
 @interface AppDelegate ()
 
@@ -17,11 +18,31 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    // create the main window and make it the rootView
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.backgroundColor = [UIColor cyanColor];
     self.window.rootViewController = [[UIViewController alloc] init];
+    
+    // set the background of the window
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    // create a frame for our view
+    // we call the CGRectMake this way because its a struct of the C language, so we call the method like we would in C
+    CGRect frame = self.window.bounds;
+    
+    // create our view using the frame we just made
+    BNRHypnosisVuew *firstView = [[BNRHypnosisVuew alloc] initWithFrame:frame];
+    
+    // set the background color of our view
+    firstView.backgroundColor = [UIColor redColor];
+    
+    // we add our view as a subview of the main (window) view
+    [self.window addSubview:firstView];
+    
+    // draw it to the screen
     [self.window makeKeyAndVisible];
-
+    
+    // return yes
     return YES;
 }
 
