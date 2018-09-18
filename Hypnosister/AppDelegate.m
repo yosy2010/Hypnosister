@@ -33,9 +33,6 @@
     // create our view using the frame we just made
     BNRHypnosisVuew *firstView = [[BNRHypnosisVuew alloc] initWithFrame:frame];
     
-    // set the background color of our view
-    firstView.backgroundColor = [UIColor redColor];
-    
     // we add our view as a subview of the main (window) view
     [self.window addSubview:firstView];
     
