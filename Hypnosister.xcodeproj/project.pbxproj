@@ -12,6 +12,7 @@
 		3B76681021513A3E00436D81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B76680E21513A3E00436D81 /* LaunchScreen.storyboard */; };
 		3B76681321513A3E00436D81 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B76681221513A3E00436D81 /* main.m */; };
 		3B76681B21513DDC00436D81 /* BNRHypnosisVuew.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B76681A21513DDC00436D81 /* BNRHypnosisVuew.m */; };
+		3BFE330321519EDE0009267D /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BFE330221519EDE0009267D /* logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		3B76681221513A3E00436D81 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3B76681921513DDC00436D81 /* BNRHypnosisVuew.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNRHypnosisVuew.h; sourceTree = "<group>"; };
 		3B76681A21513DDC00436D81 /* BNRHypnosisVuew.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNRHypnosisVuew.m; sourceTree = "<group>"; };
+		3BFE330221519EDE0009267D /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +44,7 @@
 			children = (
 				3B76680821513A3D00436D81 /* Hypnosister */,
 				3B76680721513A3D00436D81 /* Products */,
+				3BFE330221519EDE0009267D /* logo.png */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +130,7 @@
 			files = (
 				3B76680D21513A3E00436D81 /* Assets.xcassets in Resources */,
 				3B76681021513A3E00436D81 /* LaunchScreen.storyboard in Resources */,
+				3BFE330321519EDE0009267D /* logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +280,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y3YKU4Z4R4;
 				INFOPLIST_FILE = Hypnosister/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -294,7 +298,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y3YKU4Z4R4;
 				INFOPLIST_FILE = Hypnosister/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

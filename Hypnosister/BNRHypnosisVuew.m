@@ -8,6 +8,12 @@
 
 #import "BNRHypnosisVuew.h"
 
+@interface BNRHypnosisVuew ()
+
+@property (nonatomic, strong) UIColor *circleColor;
+
+@end
+
 @implementation BNRHypnosisVuew
 
 /*
@@ -48,9 +54,31 @@
     // change line width
     path.lineWidth = 10;
     
-    // giving it a color
-    [[UIColor lightGrayColor] setStroke];
     
+    
+    // giving it a color
+    [self.circleColor setStroke];
+    
+    // until nex comment: this is the bronze challenge
+    ////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////
+    // bringing an image to the view
+    UIImage *logo = [UIImage imageNamed:@"logo.png"];
+    
+    // make the size of the image half the size of the view
+    CGSize size = CGSizeMake(bounds.size.width / 2,
+                             bounds.size.height / 2);
+    
+    // points: once we get the mid point by(width/2)and(height/2) we minues half of the image size because the image start drawing at the upper right corner
+    CGPoint point = CGPointMake((bounds.size.width / 2) - (size.width / 2),
+                                (bounds.size.height / 2) - (size.height / 2));
+    
+    [logo drawInRect:CGRectMake(point.x, point.y, size.width, size.height)];
+    ////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////
+    // end of the challenge and can be deleted if needed later with no harm to the project
+    
+    // drawing it
     [path stroke];
     
 }
@@ -65,8 +93,41 @@
         // here we have to do it only once
         self.backgroundColor = [UIColor clearColor];
         
+        // default color for the circles
+        // this one fot the circle color and not for the frame
+        self.circleColor = [UIColor lightGrayColor];
     }
     return self;
+}
+
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    // log that it was touched
+    NSLog(@"%@ was touched", self);
+    
+    // get three randoum numbers between 0-1 to assigm them to th uicolor for the RGB channels
+    float red = (arc4random() % 100) / 100.0;
+    float green = (arc4random() % 100) / 100.0;
+    float blue = (arc4random() % 100) / 100.0;
+    
+    // assign a randoum color to a UIColor object
+    UIColor *randomColor = [UIColor colorWithRed:red
+                                           green:green
+                                            blue:blue
+                                           alpha:1];
+    
+    // assign it to the circle color
+    self.circleColor = randomColor;
+}
+
+// to add the view to the dirty list of the run loop and to send it the message to redraw it self to the screen, we need a custom accessor to the property that need to be changed (circleColor) in this case
+- (void)setCircleColor:(UIColor *)circleColor
+{
+    _circleColor = circleColor;
+    
+    // add it to the list of dirty views
+    [self setNeedsDisplay];
 }
 
 @end
