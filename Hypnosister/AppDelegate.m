@@ -9,8 +9,8 @@
 #import "AppDelegate.h"
 #import "BNRHypnosisVuew.h"
 
-@interface AppDelegate ()
-
+@interface AppDelegate () <UIScrollViewDelegate>
+@property BNRHypnosisVuew *hyonosisView;
 @end
 
 @implementation AppDelegate
@@ -40,19 +40,31 @@
     // create a UIScrollView that is as big as the window and enable paging on it so that we can
     // view one of the pages only and not stop between the two of them
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenFrame];
+    
+    // disable paging
     scrollView.pagingEnabled = YES;
+    
+    // set the maximum and minimum zooming
+    scrollView.maximumZoomScale = 3.0;
+    scrollView.minimumZoomScale = 0.5;
+    
+    // add the appdelegate as the delegate to the scroll view
+    scrollView.delegate = self;
+    
+    // turn the scroll view's paging off
+    scrollView.pagingEnabled = NO;
     
     // now add it to the super view
     [controller.view addSubview:scrollView];
     
     // create 2 hypnosis view and add them as a subview of the scrollView
-    BNRHypnosisVuew *hyponsisView = [[BNRHypnosisVuew alloc]initWithFrame:screenFrame];
-    [scrollView addSubview:hyponsisView];
+    self.hyonosisView = [[BNRHypnosisVuew alloc]initWithFrame:screenFrame];
+    [scrollView addSubview:self.hyonosisView];
     
-    // in the second one we should change the x origen to the left so it can be placed beside it
-    screenFrame.origin.x += screenFrame.size.width;
-    BNRHypnosisVuew *secondView = [[BNRHypnosisVuew alloc] initWithFrame:screenFrame];
-    [scrollView addSubview:secondView];
+//    // in the second one we should change the x origen to the left so it can be placed beside it
+//    screenFrame.origin.x += screenFrame.size.width;
+//    BNRHypnosisVuew *secondView = [[BNRHypnosisVuew alloc] initWithFrame:screenFrame];
+//    [scrollView addSubview:secondView];
     
     // set the content size of the scroll view
     scrollView.contentSize = bigFrame.size;
@@ -91,5 +103,10 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+    
+    return self.hyonosisView;
+}
 
 @end
